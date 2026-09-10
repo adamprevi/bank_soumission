@@ -1,6 +1,3 @@
-```python
-# -*- coding: utf-8 -*-
-
 import streamlit as st
 import joblib as jb
 import pandas as pd
@@ -24,22 +21,8 @@ clasnames = uniques[9]
 # Fonction de prédiction
 # ============================================================
 
-def Pred_func(
-    age,
-    job,
-    marital,
-    education,
-    housing,
-    loan,
-    contact,
-    month,
-    day_of_week,
-    duration,
-    campaign,
-    pdays,
-    previous,
-    poutcome
-):
+def Pred_func(age, job,  marital,  education, housing, loan,  contact,   month,  day_of_week, duration,    campaign,   pdays, previous,
+    poutcome):
 
     # Encodage des variables catégorielles
     job = encoders[0].transform([job])[0]
@@ -53,22 +36,8 @@ def Pred_func(
     poutcome = encoders[8].transform([poutcome])[0]
 
     # Création du vecteur
-    x_new = np.array([
-        age,
-        job,
-        marital,
-        education,
-        housing,
-        loan,
-        contact,
-        month,
-        day_of_week,
-        duration,
-        campaign,
-        pdays,
-        previous,
-        poutcome
-    ])
+    x_new = np.array([age, job,  marital,   education, housing,  loan,    contact,   month,  day_of_week,  duration,   campaign, pdays,
+        previous, poutcome  ])
 
     # Mise en forme
     x_new = x_new.reshape(1, -1)
@@ -274,22 +243,8 @@ with tab2:
 
                 for row in df.iloc[:, :].values:
 
-                    y_pred = Pred_func(
-                        row[0],
-                        row[1],
-                        row[2],
-                        row[3],
-                        row[4],
-                        row[5],
-                        row[6],
-                        row[7],
-                        row[8],
-                        row[9],
-                        row[10],
-                        row[11],
-                        row[12],
-                        row[13]
-                    )
+                    y_pred = Pred_func( row[0], row[1],  row[2],    row[3],  row[4],  row[5],   row[6], row[7],  row[8],  row[9],row[10],
+                        row[11], row[12], row[13] )
 
                     predictions.append(y_pred)
 
